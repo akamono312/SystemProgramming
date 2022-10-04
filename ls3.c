@@ -1,8 +1,3 @@
-// show_file_info함수 filename 처리 
-// filename처리는 새로운 구조체로 
-// 정렬함수 구현(time, size)
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
