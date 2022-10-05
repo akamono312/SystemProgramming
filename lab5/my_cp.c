@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 
     /* open files */
     if((in_fd = open(argv[1], O_RDONLY)) == -1) oops("Cannot open", argv[1]);
-    if((out_fd = creat(argv[2], COPYMODE)) == -1) oops("Cannot creat", argv[2]);
+    if((out_fd = open(argv[2], O_WRONLY)) == -1) oops("Cannot open", argv[2]);
 
     /* copy files */
     while((n_chars = read(in_fd, buf, BUFFERSIZE)) > 0) {
