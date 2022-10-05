@@ -6,7 +6,6 @@
 #include <unistd.h>
 
 #define BUFFERSIZE 4096
-#define COPYMODE 0644
 
 void oops(char*, char*);
 
