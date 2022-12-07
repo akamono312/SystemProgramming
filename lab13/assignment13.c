@@ -41,19 +41,21 @@ void* prime_count(void* arg) {
 }
 
 int main() {
-    pthread_t thrd1, thrd2;
+    pthread_t thrd1, thrd2, thrd3;
     struct timespec begin, end;
     int *status;
-    int idx1, idx2;
+    int idx1, idx2, idx3;
     printf("Enter a positive integer: ");
     scanf("%d", &n);
 
-    idx1 = 1; idx2 = 2;
+    idx1 = 1; idx2 = 2; idx3 = 3;
     pthread_create(&thrd1, NULL, prime_count, &idx1);
     pthread_create(&thrd2, NULL, prime_count, &idx2);
+    pthread_create(&thrd3, NULL, prime_count, &idx3);
 
     pthread_join(thrd1, (void *)&status);
     pthread_join(thrd2, (void *)&status);
+    pthread_join(thrd3, (void *)&status);
 
     printf("The number of prime numbers: %d\n", total_cnt);
 }
