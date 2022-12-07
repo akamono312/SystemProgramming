@@ -17,7 +17,8 @@ int isPrime(int n) {
 
 void* prime_count(void* arg) {
     int num;
-    long time, ms;
+    long time;
+    double ms;
     struct timespec begin, end;
     int idx = *(int *)arg;
 
@@ -35,8 +36,8 @@ void* prime_count(void* arg) {
     }
     clock_gettime(CLOCK_REALTIME, &end);
     time = (end.tv_sec - begin.tv_sec) + (end.tv_nsec - begin.tv_nsec);
-    ms = time / 1000000;
-    printf("Thread%d is done. The time it took to run this thread is %ldms.\n", idx, ms);
+    ms = (double)time / 1000000;
+    printf("Thread%d is done. The time it took to run this thread is %0.3fms.\n", idx, ms);
     
 }
 
